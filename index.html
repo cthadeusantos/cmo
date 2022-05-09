@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Calculadora da Máxima ocupação de ambientes compartilhados para minimizar risco de infecção por aerossóis - COVID-19 (CMO)</h1>
+
+<script src="main.js"></script>
+<script src="js/basics.js"></script>
+<script src="js/enviroment.js"></script>
+<script src="js/windows.js"></script>
+<script src="js/dimensions.js"></script>
+
+    <ol>
+        <h2><li>Parâmetros básicos</li></h2>
+        
+        <label for="prevalencia">Prevalencia (%):</label><br>
+        <input class="input-data" type="text" id="prevalencia" name="prevalencia" value="0"><br>
+
+        <p>Máximo risco abs. de infecção comportado: <span id="max_risk"></span></p>
+
+        <label for="imunizados">Percentual de pessoas imunizadas (%) [I]</label><br>
+        <input class="input-data" type="text" id="imunizados" name="imunizado" value="0"><br><br>
+
+        <label for="variante">Variante do vírus</label>
+        <select class="input-data" id="variante" name="variante">
+            <option value="original">Original</option>
+            <option value="delta">Delta</option>
+            <option value="omicron">Ômicron</option>
+        </select><br><br>
+
+        <h2><li>Descrição do ambiente</li></h2>
+
+        <label for="janelas">O ambiente possui janelas?</label>
+        <select class="input-data" id="janelas" name="janelas">
+            <option value="0">Não</option>
+            <option value="1" selected>Sim</option>
+        </select>
+        <span id="info_janelas"></span>
+        <br><br>
+
+        <label for="renovacao">Ambiente possui sistema com renovação de ar exterior?</label>
+        <select  class="input-data" id="renovacao" name="renovacao">
+            <option value="0">Não</option>
+            <option value="1" selected>Sim</option>
+        </select>
+        <span id="info_renovacao"></span>
+        <br>
+
+        <p>Observação: <span id="observacao2"></span></p>
+
+        <label for="ambiente">Tipo de ambiente</label>
+        <select  class="input-data" id="ambiente" name="ambiente">
+            <option value="1">Sala de aula</option>
+            <option value="2">Escritório</option>
+        </select><br><br>
+
+        <li><h2>Informações de janelas do ambiente</h2></li>
+
+        <label for="qte_janelas">Quantidade de janelas no ambiente:</label><br>
+        <input type="text"  class="input-data" id="qte_janelas" name="qte_janelas" value="0"><br><br>
+
+        <label for="area_janela">Área de uma janela (m²):</label><br>
+        <input type="text" class="input-data" id="area_janela" name="area_janela" value="0"><br><br>
+
+        <p>Área total de janela no ambiente (m²): <span id="area_total"></span></p>
+        <p>Área de janela necessária no ambiente (m²):<span id="area_necessaria"></span></p>
+        <p>Observação: <span id="observacao3"></span></p>
+
+        <h2><li>Dimensões e Ocupação desejada</li></h2>
+
+        <p>Área do ambiente (m²): <span id="area_ambiente"></span></p>
+
+        <label for="altura">Pé-direito do ambiente(m):</label><br>
+        <input type="text" class="input-data" id="altura" name="altura" value="0"><br><br>
+
+        <label for="qte_ocupantes">Número de ocupantes desejado (pessoas):</label><br>
+        <input type="text" class="input-data" id="qte_ocupantes" name="qte_ocupantes" value="0"><br><br>
+
+        <p>Taxa de Ocupação: <span id="tx_ocupacao"></span></p>
+        <p>Distancia entre pessoas resultante(m): <span id="distanciamento"></span></p>
+
+        <p>Observação: <span id="observacao4"></span></p>
+
+        <label for="largura">Largura do ambiente(m):</label><br>
+        <input type="text" class="input-data" id="largura" name="largura" value="0"><br><br>
+
+        <label for="profundidade">Profundidade do ambiente(m):</label><br>
+        <input type="text" class="input-data" id="profundidade" name="profundidade" value="0"><br><br>
+
+        <label for="dist_frontal">Distância entre pessoas - frontal (m)</label><br>
+        <input type="text" class="input-data" id="dist_frontal" name="dist_frontal" value="0"><br><br>
+
+        <label for="dist_lateral">Distância entre pessoas - lateral (m)</label><br>
+        <input type="text" class="input-data" id="dist_lateral" name="dist_lateral" value="0"><br><br>
+
+        <p>Número de ocupantes (c/ distanciamento): <span id="calc_ocupantes"></span> estimado</p>
+
+        <h2><li>Atividade dos ocupantes</li></h2>
+        
+        <label for="atividade">Tipo de ambiente</label>
+        <select class="input-data" id="atividade" name="atividade">
+            <option value="1">Sentado respirando</option>
+            <option value="2">Sentado falando</option>
+            <option value="3">Sentado falando alto</option>
+            <option value="4">Em pé respirando</option>
+            <option value="5">Em pé falando</option>
+            <option value="6">Em pé falando alto</option>
+        </select><br><br>
+
+        <p>Fator de emissão de quanta [re]: <span id="quanta"></span></p>
+
+        <p>Fator de respiração [rb]: <span id="fator_respiracao"></span></p>
+
+        <h2><li>Proteção respiratória</li></h2>
+        <label for="tipo_mask">Tipo de ambiente</label>
+        <select class="input-data" id="tipo_mask" name="tipo_mask">
+            <option value="1">Nenhuma</option>
+            <option value="2">Máscara comum</option>
+            <option value="3">Máscara PFF2 ou KN-95</option>
+        </select><br><br>
+
+        <p>Fator de redução da máscara exalação [fe]: <span id="exalacao"></span></p>
+
+        <p>Fator de redução da máscara inalação [fi]: <span id="inalacao"></span></p>
+
+        <h2><li>Parâmetros de Ventilação</li></h2>
+        <select class="input-data" id="tipo_condicionador" name="tipo_condicionador">
+            <option value="1">Ar de janela ou Split (sem renovação de ar)</option>
+            <option value="2">Ar de janela ou Split (com renovação de ar)</option>
+            <option value="3">Climatização central</option>
+            <option value="4">Sem equipamento</option>
+        </select><br><br>
+
+        <p>Taxa de renovação de ar exterior: <span id="inalacao"></span> renovações/h</p>
+
+        <select class="input-data" id="tipo_ventilacao" name="tipo_ventilacao">
+            <option value="1">Janela fechada ou ambiente blindado</option>
+            <option value="2">Ventilação natural cruzada (janela aberta em ambos os lados da parede)</option>
+            <option value="3">Ventilação natural (1 janela aberta em um lado da parede)</option>
+            <option value="4">Ventilação natural cruzada (múltiplas janelas abertas em um lado da parede)</option>
+        </select><br><br>
+
+        <p>Taxa de renovação de ar exterior (renovações/h): <span id="taxa_renovacao_exterior"></span></p>
+        <p>vazão de ar exterior (m³/h) : <span id="vazao_ar_exterior"></span></p>
+        <p>Taxa de ventilação por pessoa (m³/(h.pessoa): <span id="taxa_ventilacao_pessoa"></span></p>
+
+        <p>Observação: <span id="observacao7"></span></p>
+
+        <h2><li>Purificadores de Ar Portáteis com filtro especial  (HEPA)</li></h2>
+
+        <label for="qte_purificador">Número de purificadores (qtde.):</label><br>
+        <input type="text" class="input-data" id="qte_purificador" name="qte_purificador" value="0"><br><br>
+
+        <select class="input-data" id="tamanho" name="tamanho">
+            <option value="1">Pequeno</option>
+            <option value="2">Médio</option>
+            <option value="3">Grande</option>
+        </select><br><br>
+
+        <p>Vazão de purificação de ar (m³/h): <span id="vazao_purificacao"></span></p>
+        <p>Taxa de purificação do ar (m³/(h.pessoa): <span id="taxa_purificacao"></span></p>
+
+        <h2><li>Resultados</li></h2>
+
+        <p>Taxa de ventilação equivalente (renovações/h): <span id="taxa_vent_equivalente"></span></p>
+        <p>Máximo tempo de ocupação (horas): <span id="max_tempo_ocupacao_horas"></span><span id="par_risco_info"></span></p>
+        <p>Máximo tempo de ocupação (minutos): <span id="max_tempo_ocupacao_horas"></span></p>
+        <p>Probabilidade cond. de infecção [P]: <span id="prob_cond_infeccao"></span></p>
+        <p>Probabilidade absoluta de infecção [Pa]: <span id="prob_abs_infeccao"></span></p>
+        <p>Número de casos sec. do evento: <span id="num_casos_evento"></span></p>
+
+        <p>Parâmetro de risco [H]: <span id="par_risco"></span> <span id="par_risco_info"></span></p>
+    </ol>
+
+
+<a href="https://pubs.acs.org/doi/10.1021/acs.est.1c06531">Baseado no método de Peng et al. (2021)</a>
+
+<p>COVID-19: A Calculadora da Máxima Ocupação de Ambientes para Minimizar Risco de Infecção por Aerossóis - COVID-19 (CPO)  é uma ferramenta em evolução destinada a familiarizar o usuário interessado com os fatores que influenciam o risco de transmissão aérea de COVID-19 em ambientes internos, e a auxiliar na avaliação quantitativa do risco em ambientes de uso coletivo. Observamos que a incerteza e a variabilidade intrínseca dos parâmetros do modelo podem levar a erros tão grandes como uma ordem de grandeza, que podem ser compensados pela escolha de uma tolerância ao risco suficientemente pequena. Esta ferramenta não leva em conta a transmissão de curto alcance através de jatos respiratórios, que pode elevar substancialmente o risco quando as máscaras faciais não estão sendo usadas. O uso da  CMO é de responsabilidade exclusiva do usuário, sendo esta ferramenta disponibilizada sem qualquer tipo de garantia.         Devido ao universo de possibilidades de utilização dos ambientes e tipos de proteção aplicáveis, entre outras diversas variáveis possíveis, os autores se isentam de qualquer responsabilidade por seu uso.</p>
+
+<script>
+    const nodeList = document.querySelectorAll(".input-data");
+    for (let i = 0; i < nodeList.length; i++) {
+        nodeList[i].addEventListener('change', () => main());
+    }
+</script>
+
+</body>
+</html>
