@@ -6,10 +6,14 @@
 <h1>Calculadora da Máxima ocupação de ambientes compartilhados para minimizar risco de infecção por aerossóis - COVID-19 (CMO)</h1>
 
 <script src="js/main.js"></script>
+<script src="js/airing.js"></script>
 <script src="js/basics.js"></script>
 <script src="js/enviroment.js"></script>
 <script src="js/windows.js"></script>
 <script src="js/dimensions.js"></script>
+<script src="js/cleaning.js"></script>
+<script src="js/activity.js"></script>
+<script src="js/results.js"></script>
 
     <ol>
         <h2><li>Parâmetros básicos</li></h2>
@@ -98,7 +102,7 @@
 
         <h2><li>Atividade dos ocupantes</li></h2>
         
-        <label for="atividade">Tipo de ambiente</label>
+        <label for="atividade">Atividade mais intensa esperada</label>
         <select class="input-data" id="atividade" name="atividade">
             <option value="1">Sentado respirando</option>
             <option value="2">Sentado falando</option>
@@ -132,7 +136,7 @@
             <option value="4">Sem equipamento</option>
         </select><br><br>
 
-        <p>Taxa de renovação de ar exterior: <span id="inalacao"></span> renovações/h</p>
+        <p>Taxa de renovação de ar exterior: <span id="renovacao_ambiente"></span> renovações/h</p>
 
         <select class="input-data" id="tipo_ventilacao" name="tipo_ventilacao">
             <option value="1">Janela fechada ou ambiente blindado</option>
@@ -141,7 +145,8 @@
             <option value="4">Ventilação natural cruzada (múltiplas janelas abertas em um lado da parede)</option>
         </select><br><br>
 
-        <p>Taxa de renovação de ar exterior (renovações/h): <span id="taxa_renovacao_exterior"></span></p>
+        <p>Taxa de renovação de ar exterior: <span id="renovacao_ventilacao"></span>(renovações/h)</p>
+        <p>Taxa de renovação de ar exterior (renovações/h): <span id="taxa_renovacao"></span></p>
         <p>vazão de ar exterior (m³/h) : <span id="vazao_ar_exterior"></span></p>
         <p>Taxa de ventilação por pessoa (m³/(h.pessoa): <span id="taxa_ventilacao_pessoa"></span></p>
 
