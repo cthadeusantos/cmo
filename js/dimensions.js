@@ -11,7 +11,7 @@ function volume_ambiente(){
 
 function taxa_ocupacao(){
     let value1 = area_ambiente();
-    let value2 = parseInt(document.getElementById("qte_ocupantes").value);
+    let value2 = numero_ocupantes();
     return (value1 / value2);
 }
 
@@ -29,4 +29,8 @@ function value_ambiente(){
     let value1 = parseInt(document.getElementById("ambiente").value);
     let dict = {1: 0.75, 2: 0.5};
     return dict[value1];
+}
+
+function numero_ocupantes(){
+    return parseInt(document.getElementById("qte_ocupantes").value);
 }

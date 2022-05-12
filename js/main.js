@@ -18,8 +18,8 @@ function main(){
     document.getElementById("vazao_ar_exterior").innerHTML = vazao_exterior();
     document.getElementById("taxa_ventilacao_pessoa").innerHTML = taxa_ven_pessoa();
     document.getElementById("vazao_purificacao").innerHTML = vazao_purificacao();
-    document.getElementById("taxa_purificacao").innerHTML = taxa_purificacao();
-    
+    document.getElementById("taxa_purificacao").innerHTML = taxa_purificacao();    
     document.getElementById("taxa_vent_equivalente").innerHTML = taxa_ventilacao_equivalente();
+    document.getElementById("fator_respiracao").innerHTML = fator_respiracao();
 };
 
