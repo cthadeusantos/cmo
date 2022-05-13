@@ -1,11 +1,3 @@
-function tipo_mascara(){
-    return parseInt(document.getElementById("tipo_mask").value);
-}
-
-function atividade(){
-    return parseInt(document.getElementById("atividade").value);
-}
-
 function protecao_exalacao(){
     let value1 = tipo_mascara();
     let dict = {1: 1, 2: 0.5, 3: 0.1};

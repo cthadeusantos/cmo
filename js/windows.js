@@ -1,7 +1,5 @@
 function area_janelas_ambiente(){
-    let value1 = document.getElementById("qte_janelas").value;
-    let value2 = document.getElementById("area_janela").value;
-    return value1 * value2;
+    return qte_janelas() * area_janela;
 }
 
 function area_necessaria_ambiente(){
@@ -9,10 +7,9 @@ function area_necessaria_ambiente(){
 }
 
 function observacao3(){
+    let string = "Área de ventilação natural não conforme"; 
     if (area_janelas_ambiente() >= area_necessaria_ambiente()){
         string = "Área de ventilação natural em conformidade";
-    } else {
-        string = "Área de ventilação natural não conforme";
-    }
+    };
     return string;
 }
