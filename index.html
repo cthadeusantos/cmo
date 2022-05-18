@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <meta charset="utf-8"/>
-<html>
+<html lang="pt-br">
+<title> CMO - 0.1.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Meta 
+https://webhint.io/docs/user-guide/hints/hint-meta-viewport/?source=devtools
+-->
 <body>
 
 <h1>Calculadora da Máxima ocupação de ambientes compartilhados para minimizar risco de infecção por aerossóis - COVID-19 (CMO)</h1>
 
-<script src="js/main.js"></script>
+
 <script src="js/airing.js"></script>
 <script src="js/basics.js"></script>
 <script src="js/enviroment.js"></script>
@@ -13,8 +18,9 @@
 <script src="js/dimensions.js"></script>
 <script src="js/cleaning.js"></script>
 <script src="js/activity.js"></script>
-<script src="js/results.js"></script>
-
+<script src="js/inputs.js"></script>
+<script src="js/cmo.js"></script>
+<script src="js/main.js"></script>
     <ol>
         <h2><li>Parâmetros básicos</li></h2>
         
@@ -28,9 +34,9 @@
 
         <label for="variante">Variante do vírus</label>
         <select class="input-data" id="variante" name="variante">
-            <option value="original">Original</option>
-            <option value="delta">Delta</option>
-            <option value="omicron">Ômicron</option>
+            <option value="1">Original</option>
+            <option value="2">Delta</option>
+            <option value="3">Ômicron</option>
         </select><br><br>
 
         <h2><li>Descrição do ambiente</li></h2>
@@ -169,8 +175,8 @@
         <h2><li>Resultados</li></h2>
 
         <p>Taxa de ventilação equivalente (renovações/h): <span id="taxa_vent_equivalente"></span></p>
-        <p>Máximo tempo de ocupação (horas): <span id="max_tempo_ocupacao_horas"></span><span id="par_risco_info"></span></p>
-        <p>Máximo tempo de ocupação (minutos): <span id="max_tempo_ocupacao_horas"></span></p>
+        <p>Máximo tempo de ocupação (horas): <span id="max_tempo_ocupacao_horas"></span><span id="max_tempo_info"></span></p>
+        <p>Máximo tempo de ocupação (minutos): <span id="max_tempo_ocupacao_minutos"></span></p>
         <p>Probabilidade cond. de infecção [P]: <span id="prob_cond_infeccao"></span></p>
         <p>Probabilidade absoluta de infecção [Pa]: <span id="prob_abs_infeccao"></span></p>
         <p>Número de casos sec. do evento: <span id="num_casos_evento"></span></p>

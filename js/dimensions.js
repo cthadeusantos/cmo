@@ -7,7 +7,7 @@ function volume_ambiente(){
 }
 
 function taxa_ocupacao(){
-    return (area_ambiente() / numero_ocupantes());
+    return (area_ambiente() / qte_ocupantes());
 }
 
 function distanciamento(){

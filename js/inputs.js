@@ -11,19 +11,15 @@ function imunizados() {
 }
 
 function qte_ocupantes(){
-    return parseFloat(document.getElementById("qte_ocupantes").value);
-}
-
-function numero_ocupantes(){
     return parseInt(document.getElementById("qte_ocupantes").value);
 }
 
 function qte_janelas(){
-    return document.getElementById("qte_janelas").value;
+    return parseInt(document.getElementById("qte_janelas").value);
 }
 
 function area_janela() {
-    return document.getElementById("area_janela").value;
+    return parseFloat(document.getElementById("area_janela").value);
 }
 
 function dist_frontal(){
@@ -56,10 +52,6 @@ function tipo_condicionador(){
 
 function tipo_ventilacao(){
     return parseInt(document.getElementById("tipo_ventilacao").value);
-}
-
-function qte_ocupantes() {
-    return parseInt(document.getElementById("qte_ocupantes").value);
 }
 
 function tamanho_purificador(){

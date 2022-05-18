@@ -21,5 +21,6 @@ function main(){
     document.getElementById("taxa_purificacao").innerHTML = taxa_purificacao();    
     document.getElementById("taxa_vent_equivalente").innerHTML = taxa_ventilacao_equivalente();
     document.getElementById("fator_respiracao").innerHTML = fator_respiracao();
+    let a = tabela();
 };
 
